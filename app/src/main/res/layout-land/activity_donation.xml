@@ -6,28 +6,22 @@
     tools:context=".DonationActivity"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:background="@color/teal_200"
     >
-
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Any Dollar Mater!"
-        android:textSize="40sp" />
+        android:text="@string/landscape_welcomemsg"
+        android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/image3" />
     <RadioGroup
         android:id="@+id/radiogroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image"
+
+        android:layout_below="@+id/title"
         android:gravity="center">
 
         <RadioButton

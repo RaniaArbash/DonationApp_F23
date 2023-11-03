@@ -22,20 +22,19 @@ public class DonationActivity extends AppCompatActivity
     Button donation_but;
     int selectedPayment = 0;
     double amount;
-    Donation allDonations[] ;
+    Donation listOfDonations[] ;
     int index;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
 
-        allDonations = ((MyApp)getApplication()).allDonations;
+        listOfDonations = ((MyApp)getApplication()).allDonations;
         index = ((MyApp)getApplication()).index;
         amountText = findViewById(R.id.donation_amount);
         paypal_but = findViewById(R.id.paypal);
         credit_but = findViewById(R.id.creditCard);
         donation_but = findViewById(R.id.donate_button);
-
         paypal_but.setOnClickListener(this);
         credit_but.setOnClickListener(this);
         donation_but.setOnClickListener(this);
@@ -58,7 +57,7 @@ public class DonationActivity extends AppCompatActivity
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                     LocalDateTime now = LocalDateTime.now();
                     Donation newDonation = new Donation(selectedPayment,amount,dtf.format(now));
-                    allDonations[((MyApp)getApplication()).index++] = newDonation;
+                    listOfDonations[((MyApp)getApplication()).index++] = newDonation;
                     // toast to thank the user.
                     String msg = "Thanks for your donation number " + (((MyApp)getApplication()).index)  + " The amount is "+ newDonation.getAmount() +"$";
                     Toast.makeText(this, msg,Toast.LENGTH_LONG).show();
