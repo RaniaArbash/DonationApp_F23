@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Donation App</string>
+    <string name="title">My First Calcuator</string>
+    <string name="enter_the_first_number">enter the first number</string>
+    <string name="enter_the_second_number">enter the second number</string>
+    <string name="error_msg">One or both Numbers are empty</string>
+    <string name="hello">Hello</string>
+</resources>
