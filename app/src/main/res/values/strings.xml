@@ -5,4 +5,5 @@
     <string name="enter_the_second_number">enter the second number</string>
     <string name="error_msg">One or both Numbers are empty</string>
     <string name="hello">Hello</string>
+    <string name="erro_input">All fields should be filled</string>
 </resources>
