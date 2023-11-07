@@ -2,6 +2,7 @@ package com.example.simpilecalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,11 +57,18 @@ public class DonationActivity extends AppCompatActivity
                 if (validate()){
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                     LocalDateTime now = LocalDateTime.now();
+                    String paymentMethod = selectedPayment == 1 ? "Credit Card" : "PayPal";
                     Donation newDonation = new Donation(selectedPayment,amount,dtf.format(now));
                     listOfDonations[((MyApp)getApplication()).index++] = newDonation;
                     // toast to thank the user.
-                    String msg = "Thanks for your donation number " + (((MyApp)getApplication()).index)  + " The amount is "+ newDonation.getAmount() +"$";
-                    Toast.makeText(this, msg,Toast.LENGTH_LONG).show();
+                    String msg = "Thanks for your donation number " + (((MyApp)getApplication()).index)  + " The amount is "+ newDonation.getAmount() +"$." +
+                            " The used payment method is " + paymentMethod + " On " + dtf.format(now) ;
+                   // Toast.makeText(this, msg,Toast.LENGTH_LONG).show();
+                    Intent toDonationReportIntent = new Intent(this, DonationReportActivity.class);
+
+                    toDonationReportIntent.putExtra("donation_report", msg);
+                    startActivity(toDonationReportIntent);
+
 
                     paypal_but.setChecked(false);
                     credit_but.setChecked(false);

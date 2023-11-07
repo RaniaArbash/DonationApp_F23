@@ -1,64 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".DonationActivity"
-    android:layout_height="match_parent"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
-    >
+    android:layout_height="match_parent"
+    tools:context=".DonationActivity">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Any Dollar Mater!"
-        android:textSize="40sp" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/image3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+<RadioGroup
+    android:id="@+id/radiogroup"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/donation_amount"
+    app:layout_constraintTop_toBottomOf="@id/guideline2"
+    app:layout_constraintVertical_chainStyle="spread_inside"
+    >
+    <RadioButton
+        android:id="@+id/paypal"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/image3" />
-    <RadioGroup
-        android:id="@+id/radiogroup"
-        android:layout_width="match_parent"
+        android:text="PayPal"
+        android:layout_gravity="center"
+        />
+
+    <RadioButton
+        android:id="@+id/creditCard"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image"
-        android:gravity="center">
+        android:text="Credit Card"
+        android:layout_gravity="center"
 
-        <RadioButton
-            android:id="@+id/paypal"
-            android:layout_width="@dimen/payment_method_width"
-            android:layout_height="wrap_content"
-            android:text="PayPal" />
+        />
 
-        <RadioButton
-            android:id="@+id/creditCard"
-            android:layout_width="@dimen/payment_method_width"
-            android:layout_height="wrap_content"
-            android:text="Credit Card" />
-    </RadioGroup>
-
+</RadioGroup>
     <EditText
         android:id="@+id/donation_amount"
-
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/donate_button"
-        android:layout_below="@+id/radiogroup"
-        android:layout_centerHorizontal="true"
         android:hint="Please Enter the donation amount Here"
-        android:inputType="number" />
+        android:inputType="number"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/donate_button"
+        app:layout_constraintTop_toBottomOf="@id/radiogroup"
+        />
 
     <Button
         android:id="@+id/donate_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Donate Now"
+        app:layout_constraintTop_toBottomOf="@id/donation_amount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Donate Now" />
-</RelativeLayout>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,18 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpileCalculator">
         <activity
+            android:name=".DonationReportActivity"
+            android:exported="true" />
+        <activity
             android:name=".DonationActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
